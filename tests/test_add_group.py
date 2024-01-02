@@ -32,5 +32,5 @@ def test_add_group(login_page: LoginPage, registration_page: RegistrationPage, c
     assert dashboard_page.verify_page(langue)
     dashboard_page.go_to_groups_page(langue)
     assert groups_page.verify_page(langue)
-    group = groups_page.add_group(langue)
-    assert groups_page.verify_add_succesfully(group)
+    groups_page.add_group(langue)
+    assert groups_page.verify_add_succesfully()

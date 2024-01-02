@@ -48,7 +48,7 @@ class DashboardPage(BasePage):
     def go_to_groups_page(self, langue) -> None:
         self.go_to_menu_burger()
         if (langue == 'Fr'):
-            self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Mes Groupes\"]").click()
+            self.driver.find_element(By.XPATH, "(//android.widget.TextView[@text=\"Mes Groupes\"])[2]").click()
         if (langue == 'Ar'):
             self.driver.find_element(By.XPATH, "(//android.widget.TextView[@text=\"مجموعاتي\"])[2]").click()
         if (langue == 'En'):

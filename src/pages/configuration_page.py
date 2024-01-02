@@ -121,3 +121,4 @@ class ConfigurationPage(BasePage):
         sport_element = random.choice(sports_element)
         sport_element.click()
         self.submit_btn.click()
+        save_in_csv_file('sports.csv', ['sport'], [sport_element.text])

@@ -16,7 +16,7 @@ class GroupsPage(BasePage):
         "name_group_input" : ('xpath', '//*[@resource-id="nameTextInput"]'),
         "free_input" : ('xpath', '//*[@resource-id="feesTextInput"]'),
         "save_btn" : ('xpath', '//*[@resource-id="submitBtn"]'),
-        "toaster_succesfully_saved" : ('xpath', '//*[@resource-id="succesfully saved"]'),
+        "toaster_succesfully_saved" : ('xpath', '//android.view.ViewGroup[@content-desc="succesfully saved"]'),
     }
 
     def verify_page(self, langue) -> bool:
@@ -37,11 +37,11 @@ class GroupsPage(BasePage):
     
     def select_sport(self, langue):
         if (langue == 'Fr'):
-            return self.driver.find_element(By.XPATH, "//*[@resource-id='Quel Sport ?']")
+            return self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Quel Sport ?\"]")
         if (langue == 'Ar'):
-            return self.driver.find_element(By.XPATH, "//*[@resource-id='أي نوع من الرياضة؟']")
+            return self.driver.find_element(By.XPATH, "//android.widget.TextView[@text='أي نوع من الرياضة؟']")
         if (langue == 'En'):
-            return self.driver.find_element(By.XPATH, "//*[@resource-id='Which Sport?']")
+            return self.driver.find_element(By.XPATH, "//android.widget.TextView[@text='Which Sport?']")
 
     def add_group(self, langue) -> str:
         groups_list = ['femme_A1' , 'femme_A2', 'Homme_A1', 'Homme_A2', 'Enfant_A1', 'Enfant_A2']
@@ -50,17 +50,17 @@ class GroupsPage(BasePage):
         self.add_btn.click()
         self.verify_header_add_group(langue)
         self.name_group_input.set_text(group)
-
         select_sport_element = self.select_sport(langue)
         select_sport_element.click()
-        #
-        sports_list = self.driver.find_elements(By.CLASS_NAME, "android.widget.TextView")
-        sport = random.choice(sports_list)
-        self.driver.find_element(By.XPATH, f'//android.widget.TextView[@text="{sport.text}"]').click()
+    
+        sport = read_from_csv_file('sports.csv')
+        sport_element = self.driver.find_element(By.XPATH, f"//android.view.ViewGroup[@content-desc=\"{sport[0]}\"]")
+        sport_element.click()
+        
 
         self.free_input.set_text(free)
         self.save_btn.click()
-        return group
     
-    def verify_add_succesfully(self, group) -> bool:
-        return bool(self.toaster_succesfully_saved) and self.driver.find_element(By.XPATH, "//android.widget.TextView[@resource-id=\"groupNameText\"]").text == group
+    def verify_add_succesfully(self) -> bool:
+        sport = read_from_csv_file('sports.csv')
+        return bool(self.toaster_succesfully_saved) and self.driver.find_element(By.XPATH, "//android.widget.TextView[@resource-id=\"sportNameText\"]").text == sport[0]
