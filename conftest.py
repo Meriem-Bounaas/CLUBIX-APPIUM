@@ -13,6 +13,7 @@ from src.pages.dashboard_page import DashboardPage
 from src.pages.sports_page import SportsPage
 from src.pages.logout_page import LogoutPage
 from src.pages.groups_page import GroupsPage
+from src.pages.members_page import MembersPage
 
 
 APPIUM_HOST = '127.0.0.1'
@@ -87,3 +88,8 @@ def logout_page(driver: WebDriver) -> LogoutPage:
 def groups_page(driver: WebDriver) -> GroupsPage:
     group = GroupsPage(driver)
     yield group
+
+@pytest.fixture()
+def members_page(driver: WebDriver) -> MembersPage:
+    member = MembersPage(driver)
+    yield member

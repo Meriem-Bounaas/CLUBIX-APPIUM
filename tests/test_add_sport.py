@@ -32,5 +32,5 @@ def test_add_sport(login_page: LoginPage, registration_page: RegistrationPage, c
     assert dashboard_page.verify_page(langue)
     dashboard_page.go_to_sports_page(langue)
     assert sports_page.verify_page(langue)
-    sport = sports_page.add_sport(langue)
-    assert sports_page.verify_add_succesfully(sport)
+    sports_page.add_sport(langue)
+    assert sports_page.verify_add_succesfully()

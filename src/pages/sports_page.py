@@ -41,7 +41,8 @@ class SportsPage(BasePage):
         self.verify_header_add_sport(langue)
         self.name_sport_input.set_text(sport)
         self.save_btn.click()
-        return sport
+        save_in_csv_file('sports.csv', ['sport'], [sport])
     
-    def verify_add_succesfully(self, sport) -> bool:
-        return bool(self.toaster_succesfully_saved) and bool(self.driver.find_element(By.XPATH, f"//android.widget.TextView[@text=\"{sport}\"]"))
+    def verify_add_succesfully(self) -> bool:
+        sport = read_from_csv_file('sports.csv')
+        return bool(self.toaster_succesfully_saved) and bool(self.driver.find_element(By.XPATH, f"//android.widget.TextView[@text=\"{sport[0]}\"]"))

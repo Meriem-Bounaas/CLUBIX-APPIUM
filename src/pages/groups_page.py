@@ -60,6 +60,8 @@ class GroupsPage(BasePage):
 
         self.free_input.set_text(free)
         self.save_btn.click()
+
+        save_in_csv_file('groups.csv', ['group'], [group])
     
     def verify_add_succesfully(self) -> bool:
         sport = read_from_csv_file('sports.csv')
