@@ -2,23 +2,33 @@
 Clubix is a mobile application specially crafted for the efficient administration and organization of the gym/fitness center. 
 
 ### Screenshot of the application : 
-<img src="./src/media/Screenshot_0.png"> 
-<img src="./src/media/Screenshot_1.png">
-<img src="./src/media/Screenshot_2.png">
-<img src="./src/media/Screenshot_3.png">
-<img src="./src/media/Screenshot_4.png">
-<img src="./src/media/Screenshot_5.png">
-<img src="./src/media/Screenshot_6.png">
-<img src="./src/media/Screenshot_7.png">
-<img src="./src/media/Screenshot_8.png">
-<img src="./src/media/Screenshot_9.png">
-<img src="./src/media/Screenshot_10.png">
-<img src="./src/media/Screenshot_11.png">
-<img src="./src/media/Screenshot_12.png">
-<img src="./src/media/Screenshot_13.png">
-<img src="./src/media/Screenshot_14.png">
-<img src="./src/media/Screenshot_15.png">
-<img src="./src/media/Screenshot_16.png">
+<div style="display: flex; justify-content: space-between;">
+    <img src="./src/media/Screenshot_0.png" alt="Image 0" style="width: 200px; height: auto;">
+    <img src="./src/media/Screenshot_1.png" alt="Image 1" style="width: 200px; height: auto;">
+    <img src="./src/media/Screenshot_2.png" alt="Image 2" style="width: 200px; height: auto;">
+    <img src="./src/media/Screenshot_3.png" alt="Image 2" style="width: 200px; height: auto;">
+</div>
+<div style="display: flex; justify-content: space-between;">
+    <img src="./src/media/Screenshot_4.png" alt="Image 0" style="width: 200px; height: auto;">
+    <img src="./src/media/Screenshot_5.png" alt="Image 1" style="width: 200px; height: auto;">
+    <img src="./src/media/Screenshot_6.png" alt="Image 2" style="width: 200px; height: auto;">
+    <img src="./src/media/Screenshot_7.png" alt="Image 2" style="width: 200px; height: auto;">
+</div>
+<div style="display: flex; justify-content: space-between;">
+    <img src="./src/media/Screenshot_8.png" alt="Image 0" style="width: 200px; height: auto;">
+    <img src="./src/media/Screenshot_9.png" alt="Image 1" style="width: 200px; height: auto;">
+    <img src="./src/media/Screenshot_10.png" alt="Image 2" style="width: 200px; height: auto;">
+    <img src="./src/media/Screenshot_11.png" alt="Image 2" style="width: 200px; height: auto;">
+</div>
+<div style="display: flex; justify-content: space-between;">
+    <img src="./src/media/Screenshot_12.png" alt="Image 0" style="width: 200px; height: auto;">
+    <img src="./src/media/Screenshot_13.png" alt="Image 1" style="width: 200px; height: auto;">
+    <img src="./src/media/Screenshot_14.png" alt="Image 2" style="width: 200px; height: auto;">
+    <img src="./src/media/Screenshot_15.png" alt="Image 2" style="width: 200px; height: auto;">
+</div>
+<div style="display: flex; justify-content: space-between;">
+    <img src="./src/media/Screenshot_16.png" alt="Image 0" style="width: 200px; height: auto;">
+</div>
 
 
 ### Test Cases : 
