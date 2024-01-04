@@ -1,5 +1,5 @@
 import logging
-# import allure
+import allure
 import pytest
 from appium import webdriver
 from appium.options.android import UiAutomator2Options
@@ -53,6 +53,24 @@ def driver():
     yield driver
 
     driver.quit()
+
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item, call) -> None:
+    outcome = yield
+    rep = outcome.get_result()
+    if rep.when == 'call' and rep.failed:
+        if 'browser' in item.fixturenames:
+            web_driver = item.funcargs['browser']
+        else:
+            print('Failed to find web driver')
+            return
+
+        # Attach a screenshot if a test failed
+        allure.attach(
+            web_driver.get_screenshot_as_png(),
+            name='screenshot',
+            attachment_type=allure.attachment_type.PNG
+        )
 
 @pytest.fixture()
 def login_page(driver: WebDriver) -> LoginPage:

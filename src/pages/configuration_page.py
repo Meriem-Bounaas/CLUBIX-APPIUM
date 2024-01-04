@@ -35,7 +35,7 @@ class ConfigurationPage(BasePage):
     
     def add_langue(self) -> str:
         self.langue_drop_down.click()
-        langue = random.choice(['Fr', 'Ar', 'En'])
+        langue = random.choice(['Fr'])
         langue_btn = self.driver.find_element(By.XPATH, f'//android.widget.TextView[@text="{langue}"]')
         langue_btn.click()
         return langue

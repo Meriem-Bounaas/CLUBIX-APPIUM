@@ -1,35 +1,8 @@
 ## About Clubix :
 Clubix is a mobile application specially crafted for the efficient administration and organization of the gym/fitness center. 
 
-### Screenshot of the application : 
-<div style="display: flex; justify-content: space-between;">
-    <img src="./src/media/Screenshot_0.png" alt="Image 0" style="width: 200px; height: auto;">
-    <img src="./src/media/Screenshot_1.png" alt="Image 1" style="width: 200px; height: auto;">
-    <img src="./src/media/Screenshot_2.png" alt="Image 2" style="width: 200px; height: auto;">
-    <img src="./src/media/Screenshot_3.png" alt="Image 2" style="width: 200px; height: auto;">
-</div>
-<div style="display: flex; justify-content: space-between;">
-    <img src="./src/media/Screenshot_4.png" alt="Image 0" style="width: 200px; height: auto;">
-    <img src="./src/media/Screenshot_5.png" alt="Image 1" style="width: 200px; height: auto;">
-    <img src="./src/media/Screenshot_6.png" alt="Image 2" style="width: 200px; height: auto;">
-    <img src="./src/media/Screenshot_7.png" alt="Image 2" style="width: 200px; height: auto;">
-</div>
-<div style="display: flex; justify-content: space-between;">
-    <img src="./src/media/Screenshot_8.png" alt="Image 0" style="width: 200px; height: auto;">
-    <img src="./src/media/Screenshot_9.png" alt="Image 1" style="width: 200px; height: auto;">
-    <img src="./src/media/Screenshot_10.png" alt="Image 2" style="width: 200px; height: auto;">
-    <img src="./src/media/Screenshot_11.png" alt="Image 2" style="width: 200px; height: auto;">
-</div>
-<div style="display: flex; justify-content: space-between;">
-    <img src="./src/media/Screenshot_12.png" alt="Image 0" style="width: 200px; height: auto;">
-    <img src="./src/media/Screenshot_13.png" alt="Image 1" style="width: 200px; height: auto;">
-    <img src="./src/media/Screenshot_14.png" alt="Image 2" style="width: 200px; height: auto;">
-    <img src="./src/media/Screenshot_15.png" alt="Image 2" style="width: 200px; height: auto;">
-</div>
-<div style="display: flex; justify-content: space-between;">
-    <img src="./src/media/Screenshot_16.png" alt="Image 0" style="width: 200px; height: auto;">
-</div>
-
+## About Appium :
+Appium is an open-source automation tool used for automating mobile applications across various platforms like Android, iOS, and Windows.
 
 ### Test Cases : 
 1. Registration, followed by login and configuration
@@ -39,7 +12,12 @@ Clubix is a mobile application specially crafted for the efficient administratio
 5. Logout
 
 ### Allure Report : 
+<img src="./src/media/allure1.png" alt="Allure Report" style="width: 500px; height: auto;">
+<br></br>
+<img src="./src/media/allure2.png" alt="Allure Report" style="width: 500px; height: auto;">
 
+### Automation Output Video : 
+<img src="./src/media/demo_1.gif" alt="Watch my demo video 1" style="width: 300px; height: 600;">
 
 ### Technology used :
 - Appium

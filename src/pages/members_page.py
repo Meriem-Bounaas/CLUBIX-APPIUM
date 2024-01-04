@@ -26,6 +26,12 @@ class MembersPage(BasePage):
         "last_name_input" : ('xpath', '//*[@resource-id="lastNameTextInput"]'),
         "phone_number_input" : ('xpath', '//*[@resource-id="phoneTextInput"]'),
         "toaster_succesfully_saved" : ('xpath', '//android.view.ViewGroup[@content-desc="succesfully saved"]'),
+        "year_2025" : ('xpath', '//android.widget.Button[@text="2025"]'),
+        "year_2023" : ('xpath', '//android.widget.Button[@text="2023"]'),
+        "year_2021" : ('xpath', '//android.widget.Button[@text="2021"]'),
+        "year_2019" : ('xpath', '//android.widget.Button[@text="2019"]'),
+        "month_december" : ('xpath', '//android.widget.Button[@text="December"]'),
+        "month_february" : ('xpath', '//android.widget.Button[@text="February"]'),
     }
 
     def verify_page(self, langue) -> bool:
@@ -112,7 +118,7 @@ class MembersPage(BasePage):
         self.last_name_input.set_text(last_name)
         self.phone_number_input.set_text(phone_number)
         
-        ActionChains(self.driver).scroll_to_element(self.phone_number_input)
+        self.driver.scroll(self.phone_number_input, self.first_name_input)
         
         self.select_group(langue)
         group = read_from_csv_file('groups.csv')
@@ -122,12 +128,19 @@ class MembersPage(BasePage):
         self.joining_date.click()
         self.confirm_date.click()
 
+        self.driver.scroll(self.joining_date, self.first_name_input)
+        self.driver.scroll(self.blood_type, self.joining_date)
+
         self.blood_type.click()
         rh_type_list = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-']
         rh_type = random.choice(rh_type_list)
         self.driver.find_element(By.XPATH, f'//android.widget.TextView[@text="{rh_type}"]').click()
-
+        
         self.birth_date.click()
+        self.driver.scroll(self.year_2023, self.year_2025)
+        self.driver.scroll(self.year_2021, self.year_2023)
+        self.driver.scroll(self.year_2019, self.year_2021)
+        self.driver.scroll(self.month_december, self.month_february)
         self.confirm_date.click()
 
         save_in_csv_file('members.csv', ['first_name', 'last_name', 'phone_number', 'group', 'blood_type' ], [first_name, last_name, phone_number, group[0], rh_type])
@@ -137,3 +150,11 @@ class MembersPage(BasePage):
         self.verify_header_add_member(langue)
         self.fill_form(langue)
         self.save_btn.click()
+
+    def go_to_dashboard_page(self, langue) -> None:
+        if (langue == 'Fr'):
+            self.driver.find_element(By.XPATH, "//android.view.View[@content-desc=\"Tableau de Bord\"]/android.view.ViewGroup").click()
+        if (langue == 'Ar'):
+            self.driver.find_element(By.XPATH, "//android.view.View[@content-desc=\"الأعضاء\"]/android.view.ViewGroup").click()
+        if (langue == 'En'):
+            self.driver.find_element(By.XPATH, "//android.view.View[@content-desc=\"Members\"]/android.view.ViewGroup").click()

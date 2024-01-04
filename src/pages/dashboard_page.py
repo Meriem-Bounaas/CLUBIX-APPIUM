@@ -61,3 +61,12 @@ class DashboardPage(BasePage):
             self.driver.find_element(By.XPATH, "(//android.widget.TextView[@text=\"الأعضاء\"])[2]").click()
         if (langue == 'En'):
             self.driver.find_element(By.XPATH, "(//android.widget.TextView[@text=\"Members\"])[2]").click()
+    
+    def go_to_dashboard_page(self, langue) -> None:
+        self.go_to_menu_burger()
+        if (langue == 'Fr'):
+            self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Tableau de bord\"]").click()
+        if (langue == 'Ar'):
+            self.driver.find_element(By.XPATH, "(//android.widget.TextView[@text=\"الأعضاء\"])[2]").click()
+        if (langue == 'En'):
+            self.driver.find_element(By.XPATH, "(//android.widget.TextView[@text=\"Members\"])[2]").click()

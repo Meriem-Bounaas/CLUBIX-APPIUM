@@ -160,3 +160,5 @@ cython_debug/
 #.idea/
 
 src/app/app-release.apk
+src/assets
+allure-results
