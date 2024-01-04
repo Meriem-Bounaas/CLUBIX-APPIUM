@@ -12,12 +12,15 @@ Appium is an open-source automation tool used for automating mobile applications
 5. Logout
 
 ### Allure Report : 
-<img src="./src/media/allure1.png" alt="Allure Report" style="width: 500px; height: auto;">
+<img src="./src/media/allure1.png" alt="Allure Report">
 <br></br>
-<img src="./src/media/allure2.png" alt="Allure Report" style="width: 500px; height: auto;">
+<img src="./src/media/allure2.png" alt="Allure Report">
 
 ### Automation Output Video : 
-<img src="./src/media/demo_1.gif" alt="Watch my demo video 1" style="width: 300px; height: 600;">
+<div>
+    <img src="./src/media/demo_1.gif" alt="Watch my demo video" style="width: 300px; height: 600; margin-right: 20px;">
+    <img src="./src/media/demo_2.gif" alt="Watch my demo video" style="width: 300px; height: 600;">
+</div>
 
 ### Technology used :
 - Appium
