@@ -13,6 +13,9 @@ class MembersPage(BasePage):
 
     locators = {
         "add_btn" : ('xpath', '//*[@resource-id="addBtn"]'),
+        "name_group_input" : ('xpath', '//*[@resource-id="nameTextInput"]'),
+        "free_input" : ('xpath', '//*[@resource-id="feesTextInput"]'),
+        "submit_btn" : ('xpath', '//*[@resource-id="submitBtn"]'),
         "joining_date" : ('xpath', '//*[@resource-id="calendar1OpenBtn"]'),
         "confirm_date" : ('xpath', '//*[@resource-id="android:id/button1"]'),
         "birth_date" : ('xpath', '//*[@resource-id="Calendar2date"]'),
@@ -56,6 +59,24 @@ class MembersPage(BasePage):
             self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"+ مجموعة\"]").click()
         if (langue == 'En'):
             self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"+ Group\"]").click()
+
+    def add_group(self, langue) -> str:
+        groups_list = ['femme_A1' , 'femme_A2', 'Homme_A1', 'Homme_A2', 'Enfant_A1', 'Enfant_A2']
+        group = random.choice(groups_list)
+        free = random.randint(50, 200)
+        self.click_add_group(langue)
+        self.verify_header_add_group(langue)
+        self.name_group_input.set_text(group)
+        self.select_sport(langue)
+    
+        sport = read_from_csv_file('sports.csv')
+        sport_element = self.driver.find_element(By.XPATH, f"//android.view.ViewGroup[@content-desc=\"{sport[0]}\"]")
+        sport_element.click()
+
+        self.free_input.set_text(free)
+        self.submit_btn.click()
+
+        save_in_csv_file('groups.csv', ['group'], [group])
     
     def verify_add_succesfully(self) -> bool:
         ''' function to verify the succuss of save'''
