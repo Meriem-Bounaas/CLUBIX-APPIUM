@@ -36,7 +36,7 @@ def test_end_to_end(login_page: LoginPage, registration_page: RegistrationPage, 
     assert sports_page.verify_page(langue)
     sports_page.add_sport(langue)
     assert sports_page.verify_add_succesfully()
-    dashboard_page.go_to_dashboard_page(langue)
+    sports_page.go_to_dashboard_page(langue)
     dashboard_page.go_to_members_page(langue)
     assert members_page.verify_page(langue)
     members_page.add_group(langue)

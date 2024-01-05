@@ -14,9 +14,7 @@ class RegistrationPage(BasePage):
         "password_input": ('xpath', '//*[@resource-id="passwordTextInput"]'),
         "confirm_password_input": ('xpath', '//*[@resource-id="confirmPasswordTextInput"]'),
         "submit_btn": ('xpath', '//*[@resource-id="RegistrationBtnTitle"]'),
-
         "register_page_title" : ('XPATH', '//android.widget.TextView[@text="Inscription"][1]'),
-        "server_error_message" : ('XPATH', '//*[@resource-id="serverError"]'),
         "toaster_succesfully": ('xpath', '//android.widget.TextView[@text="succesfully saved"]')
     }
     

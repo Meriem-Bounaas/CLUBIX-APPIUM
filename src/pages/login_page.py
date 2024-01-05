@@ -19,12 +19,15 @@ class LoginPage(BasePage):
     }
 
     def verify_page(self) -> bool:
+        ''' function to verify the header of login page'''
         return bool(self.login_page_title)
     
-    def go_to_registration_page(self):
+    def go_to_registration_page(self) -> None:
+        ''' Function to navigate to the registration page'''
         self.registration_btn.click()
     
     def sign_in(self) -> None:
+        ''' Function to sign in'''
         login_data = read_from_csv_file('registration.csv')
 
         self.email_input.set_text(login_data[0])
