@@ -1,8 +1,6 @@
 ## About Clubix :
-Clubix is a mobile application specially crafted for the efficient administration and organization of the gym/fitness center. 
-
-## About Appium :
-Appium is an open-source automation tool used for automating mobile applications across various platforms like Android, iOS, and Windows.
+Clubix is a mobile application specifically designed for efficient administration and organization of gym/fitness centers.
+This repository contains automated tests for certain features of the Clubix Android app, utilizing the Appium framework.
 
 ### Test Cases : 
 1. Registration, followed by login and configuration
