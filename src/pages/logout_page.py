@@ -17,12 +17,7 @@ class LogoutPage(BasePage):
 
     def verify_page(self, langue) -> bool:
         ''' function to verify the header of logout page'''
-        if (langue == 'Fr'):
-            return bool(self.driver.find_element(By.XPATH, "//android.view.View[@text=\"Déconnexion\"]"))
-        if (langue == 'Ar'):
-            return bool(self.driver.find_element(By.XPATH, "//android.view.View[@text=\"تسجيل الخروج\"]"))
-        if (langue == 'En'):
-            return bool(self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Logout\"]"))
+        return self.pages['logout'][langue]['verify_page'](self)
 
     def logout(self) -> None:
         ''' function to logout'''

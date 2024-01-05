@@ -21,21 +21,11 @@ class SportsPage(BasePage):
 
     def verify_page(self, langue) -> bool:
         ''' function to verify the header of sports page'''
-        if (langue == 'Fr'):
-            return bool(self.driver.find_element(By.XPATH, "//android.view.View[@text=\"Mes Sports\"]"))
-        if (langue == 'Ar'):
-            return bool(self.driver.find_element(By.XPATH, "//android.view.View[@text=\"الرياضات\"]"))
-        if (langue == 'En'):
-            return bool(self.driver.find_element(By.XPATH, "//android.view.View[@text=\"My Sports\"]"))
+        return self.pages['sports'][langue]['verify_page'](self)
     
     def verify_header_add_sport(self, langue) -> bool:
         ''' function to verify the header of add a sport's page'''
-        if (langue == 'Fr'):
-            return bool(self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Ajouter un Sport\"]"))
-        if (langue == 'Ar'):
-            return bool(self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"إضافة رياضة\"]"))
-        if (langue == 'En'):
-            return bool(self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Add a Sport\"]"))
+        return self.pages['sports'][langue]['verify_header_add_sport'](self)
 
     def add_sport(self, langue) -> str:
         ''' function to add sport and save it in csv file'''
@@ -54,12 +44,7 @@ class SportsPage(BasePage):
     def go_to_dashboard_page(self, langue) -> None:
         ''' Function to navigate to the dashboard page'''
         self.go_to_menu_burger()
-        if (langue == 'Fr'):
-            self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Tableau de bord\"]").click()
-        if (langue == 'Ar'):
-            self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"لوحة المعلومات\"]").click()
-        if (langue == 'En'):
-            self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Dashboard\"]").click()
+        return self.pages['sports'][langue]['go_to_dashboard_page'](self)
     
     def verify_add_succesfully(self) -> bool:
         ''' function to verify the succuss of save'''

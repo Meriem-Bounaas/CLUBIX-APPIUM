@@ -35,32 +35,18 @@ class MembersPage(BasePage):
 
     def verify_page(self, langue) -> bool:
         ''' function to verify the header of member's page'''
-        if (langue == 'Fr'):
-            return bool(self.driver.find_element(By.XPATH, "//android.view.View[@text=\"Membres\"]"))
-        if (langue == 'Ar'):
-            return bool(self.driver.find_element(By.XPATH, "//android.view.View[@text=\"الأعضاء\"]"))
-        if (langue == 'En'):
-            return bool(self.driver.find_element(By.XPATH, "//android.view.View[@text=\"Members\"]"))
+        return self.pages['members'][langue]['verify_page'](self)
     
     def verify_header_add_member(self, langue) -> bool:
         ''' function to verify the header of add member's page'''
-        if (langue == 'Fr'):
-            return bool(self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Ajouter un Membre\"]"))
-        if (langue == 'Ar'):
-            return bool(self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"إضافة عضو\"]"))
-        if (langue == 'En'):
-            return bool(self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Add a Member\"]"))
+        return self.pages['members'][langue]['verify_header_add_member'](self)
         
     def click_add_group(self, langue) -> None:
         ''' function to click add group button'''
-        if (langue == 'Fr'):
-            self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"+ groupe\"]").click()
-        if (langue == 'Ar'):
-            self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"+ مجموعة\"]").click()
-        if (langue == 'En'):
-            self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"+ Group\"]").click()
+        return self.pages['members'][langue]['click_add_group'](self)
 
-    def add_group(self, langue) -> str:
+    def add_group(self, langue) -> None:
+        ''' function to add group'''
         groups_list = ['femme_A1' , 'femme_A2', 'Homme_A1', 'Homme_A2', 'Enfant_A1', 'Enfant_A2']
         group = random.choice(groups_list)
         free = random.randint(50, 200)
@@ -88,12 +74,7 @@ class MembersPage(BasePage):
     
     def select_group(self, langue) -> None:
         '''Function to select a group from the dropdown element'''
-        if (langue == 'Fr'):
-            self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Sélectionner le Groupe\"]").click()
-        if (langue == 'Ar'):
-            self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"اختر المجموعة\"]").click()
-        if (langue == 'En'):
-            self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Select the Group\"]").click()
+        return self.pages['members'][langue]['select_group'](self)
     
     def fill_form(self, langue) -> None:
         '''Function to fill form and save informations in csv file'''
@@ -141,9 +122,4 @@ class MembersPage(BasePage):
 
     def go_to_dashboard_page(self, langue) -> None:
         ''' Function to navigate to the dashboard page'''
-        if (langue == 'Fr'):
-            self.driver.find_element(By.XPATH, "//android.view.View[@content-desc=\"Tableau de Bord\"]/android.view.ViewGroup").click()
-        if (langue == 'Ar'):
-            self.driver.find_element(By.XPATH, "//android.view.View[@content-desc=\"لوحة المعلومات\"]/android.view.ViewGroup").click()
-        if (langue == 'En'):
-            self.driver.find_element(By.XPATH, "//android.view.View[@content-desc=\"Dashboard\"]/android.view.ViewGroup").click()
+        return self.pages['members'][langue]['go_to_dashboard_page'](self)

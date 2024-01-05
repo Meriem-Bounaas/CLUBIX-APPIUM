@@ -38,20 +38,14 @@ class ConfigurationPage(BasePage):
     def add_langue(self) -> str:
         '''Function to add the preferred language'''
         self.langue_drop_down.click()
-        langue = random.choice(['Fr'])
-        # langue = random.choice(['Fr', 'Ar', 'En'])
+        langue = random.choice(['Fr', 'Ar', 'En'])
         langue_btn = self.driver.find_element(By.XPATH, f'//android.widget.TextView[@text="{langue}"]')
         langue_btn.click()
         return langue
 
     def verify_langue_page(self, langue) -> bool:
         ''' Function to verify the language of page'''
-        if (langue == 'Fr'):
-            return self.title_langue_page.text == 'Salut'
-        if (langue == 'Ar'):
-            return self.title_langue_page.text == 'مرحبًا'
-        if (langue == 'En'):
-            return self.title_langue_page.text == 'Hi'
+        return self.pages['configuration'][langue]['verify_langue_page'](self)
         
     def go_to_username_page(self) -> None:
         ''' Function to navigate to username page'''
@@ -59,12 +53,7 @@ class ConfigurationPage(BasePage):
 
     def verify_username_page(self, langue) -> bool:
         ''' Function to verify the header of username page'''
-        if (langue == 'Fr'):
-            return bool(self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Votre Nom complet S'il Vous Plaît!\"]"))
-        if (langue == 'Ar'):
-            return bool(self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"اسمك الكامل من فضلك!\"]"))
-        if (langue == 'En'):
-            return bool(self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Your Full Name Please!\"]"))
+        return self.pages['configuration'][langue]['verify_username_page'](self)
 
     def add_username(self) -> None:
         ''' Function to add the username'''
@@ -81,12 +70,7 @@ class ConfigurationPage(BasePage):
     def succesfull_configuration(self, langue) -> bool:
         ''' Function to verify the succuss of configuration'''
         username = read_from_csv_file('username.csv')
-        if (langue == 'Fr'):
-            return self.bienvenue_username.text == f'Salut, {username[0]} {username[1]}'
-        if (langue == 'Ar'):
-            return self.bienvenue_username.text == f'مرحبًا, {username[0]} {username[1]}'
-        if (langue == 'En'):
-            return self.bienvenue_username.text == f'Hi, {username[0]} {username[1]}'
+        return self.pages['configuration'][langue]['succesfull_configuration'](self, username)
     
     def go_to_club_name_page(self) -> None:
         ''' Function to navigate to club name page'''
@@ -94,12 +78,7 @@ class ConfigurationPage(BasePage):
     
     def verify_club_name_page(self, langue) -> bool:
         ''' Function to verify the header of club name page'''
-        if (langue == 'Fr'):
-            return bool(self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Nom de Votre Club?\"]"))
-        if (langue == 'Ar'):
-            return bool(self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"اسم ناديك؟\"]"))
-        if (langue == 'En'):
-            return bool(self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Your Club's Name?\"]"))
+        return self.pages['configuration'][langue]['verify_club_name_page'](self)
 
     def add_club_name(self) -> None:
         ''' Function to add a club name'''
@@ -109,12 +88,7 @@ class ConfigurationPage(BasePage):
     
     def verify_logo_club_page(self, langue) -> bool:
         ''' Function to verify the header of club's logo page'''
-        if (langue == 'Fr'):
-            return bool(self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Télécharger le logo du club ?\"]"))
-        if (langue == 'Ar'):
-            return bool(self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"تحميل شعار النادي؟\"]"))
-        if (langue == 'En'):
-            return bool(self.driver.find_element(By.XPATH, "//android.widget.TextView[@text=\"Upload the club logo?\"]"))
+        return self.pages['configuration'][langue]['verify_logo_club_page'](self)
 
     def add_logo_club(self) -> None:
         ''' Function to add logo club'''
@@ -124,12 +98,7 @@ class ConfigurationPage(BasePage):
 
     def verify_sport_page(self, langue) -> bool:
         ''' Function to verify the header of sports page'''
-        if (langue == 'Fr'):
-            return self.header_sports_page.text == 'Quel Sport ?'
-        if (langue == 'Ar'):
-            return self.header_sports_page.text == 'أي نوع من الرياضة؟'
-        if (langue == 'En'):
-            return self.header_sports_page.text == 'Which Sport?'
+        return self.pages['configuration'][langue]['verify_sport_page'](self)
         
     def add_sports(self) -> None:
         ''' Function to add sport and save it in csv file'''

@@ -20,12 +20,7 @@ class GroupsPage(BasePage):
 
     def verify_page(self, langue) -> bool:
         ''' function to verify the header of group's page'''
-        if (langue == 'Fr'):
-            return bool(self.driver.find_element(By.XPATH, "//android.view.View[@text=\"Mes Groupes\"]"))
-        if (langue == 'Ar'):
-            return bool(self.driver.find_element(By.XPATH, "//android.view.View[@text=\"مجموعاتي\"]"))
-        if (langue == 'En'):
-            return bool(self.driver.find_element(By.XPATH, "//android.view.View[@text=\"My Groups\"]"))
+        return self.pages['groups'][langue]['verify_page'](self)
         
     def add_group(self, langue) -> str:
         groups_list = ['femme_A1' , 'femme_A2', 'Homme_A1', 'Homme_A2', 'Enfant_A1', 'Enfant_A2']
